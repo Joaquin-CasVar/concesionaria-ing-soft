@@ -1,0 +1,36 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<h1>Listado de Autos</h1>
+
+{% if perms.autos.add_auto %}
+<a href="{% url 'crear_auto' %}">Nuevo auto...</a>
+{% endif %}
+
+<hr>
+
+{% for auto in autos %}
+
+    {% if auto.foto %}
+    <img src="{{ auto.foto.url }}" alt="foto {{ auto.nombre }}" width="200">
+    {% endif %}
+
+    <p>
+        {{ auto.marca }} - {{ auto.nombre }} ({{ auto.anio }})
+        | Color: {{ auto.color }}
+        | Km: {{ auto.kilometros }}
+    </p>
+
+    {% if perms.autos.change_auto %}
+    <a href="{% url 'editar_auto' auto.id %}">Editar</a>
+    {% endif %}
+    |
+    {% if perms.autos.delete_auto %}
+    <a href="{% url 'eliminar_auto' auto.id %}">Eliminar</a>
+    {% endif %}
+
+    <hr>
+{% endfor %}
+
+{% endblock %}
