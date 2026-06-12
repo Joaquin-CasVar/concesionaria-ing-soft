@@ -11,4 +11,4 @@ def registrarse(request):
             return redirect('autos')
     else:
         form = PersonaForm()
-    return render(request, 'usuarios/registrarse.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})

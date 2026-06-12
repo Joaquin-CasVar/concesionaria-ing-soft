@@ -1,0 +1,20 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<h1>Eliminar Auto</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div>¿Estás seguro de eliminar este auto?</div>
+    <h3>
+        {{ auto.marca }} - {{ auto.nombre }} ({{ auto.anio }})
+    </h3>
+
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'autos' %}">No, volver</a>
+
+</form>
+
+{% endblock %}
