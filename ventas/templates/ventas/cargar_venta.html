@@ -1,0 +1,14 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+<h1>Cargar Venta</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit"> enviar</button>
+    <a href="{% url 'ventas' %}">Cancelar</a>
+</form>
+
+{% endblock %}

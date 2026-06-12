@@ -1,0 +1,17 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+<h1>Eliminar Venta</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div>¿Estás seguro de anular esta venta?</div>
+    <h3>
+        {{ venta.auto }} al cliente {{ venta.cliente }} el dia {{ venta.fecha }}
+    </h3>
+
+    <button type="submit">Si, eliminar</button>
+    <a href="{% url 'ventas' %}">No, volver.</a>
+</form>
+{% endblock %}
+

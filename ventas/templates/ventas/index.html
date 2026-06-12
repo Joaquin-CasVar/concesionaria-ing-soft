@@ -1,0 +1,15 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<h1>Ventas</h1>
+
+<hr>
+
+<a href="{% url 'cargar_venta' %}">Cargar Venta</a>
+
+{% for venta in ventas %}
+<p>listar ventas</p>
+{% endfor %}
+
+{% endblock %}

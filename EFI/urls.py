@@ -9,6 +9,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/register/', registrarse, name='register'),
     path('', include('autos.urls')),
+    path('ventas/', include('ventas.urls')),
 ]
 
 if settings.DEBUG:
