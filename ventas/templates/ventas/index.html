@@ -4,12 +4,28 @@
 
 <h1>Ventas</h1>
 
+{% if perms.ventas.add_venta %}
+<a href="{% url 'cargar_venta' %}">Cargar Venta</a>
+{% endif %}
+
 <hr>
 
-<a href="{% url 'cargar_venta' %}">Cargar Venta</a>
-
 {% for venta in ventas %}
-<p>listar ventas</p>
+<h1>{{ venta }}</h1>
+<p>{{ venta.auto }} | {{ venta.vendedor }} | ${{ venta.precio }} | {{ venta.fecha }} </p>
+
+<a href="{% url 'detalle_venta' venta.id %}">Detalle</a>
+{% if perms.ventas.change_venta %}
+|
+<a href="{% url 'editar_venta' venta.id %}">Editar</a>
+{% endif %}
+
+{% if perms.ventas.delete_venta %}
+|
+<a href="{% url 'anular_venta' venta.id %}">Anular</a>
+{% endif %}
+
+<hr>
 {% endfor %}
 
 {% endblock %}

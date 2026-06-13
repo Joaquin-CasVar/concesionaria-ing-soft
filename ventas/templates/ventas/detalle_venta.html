@@ -1,7 +1,16 @@
 {% extends 'autos/base.html' %}
 
 {% block body %}
+<hr>
+<a href="{% url 'ventas' %}">Volver a ventas</a>
+<hr>
 
-<h1>{{ venta.id }}</h1>
-
+<h1>{{ venta }}</h1>
+<hr>
+<p>{{ venta.auto }}</p>
+<img src="/media/{{ venta.auto.foto }}" alt="Imagen del auto" style="width: 100px;">
+<p>{{ venta.vendedor }}</p>
+<p>{{ venta.cliente }}</p>
+<p>${{ venta.precio }} en {{ venta.metodoPago }}</p>
+<p>{{ venta.fecha }} </p>
 {% endblock %}
