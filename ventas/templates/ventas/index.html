@@ -4,6 +4,8 @@
 
 <h1>Ventas</h1>
 
+<h3>Nuestra marca mas vendida: {{ marca_popular }}</h3>
+
 {% if perms.ventas.add_venta %}
 <a href="{% url 'cargar_venta' %}">Cargar Venta</a>
 {% endif %}

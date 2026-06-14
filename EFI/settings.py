@@ -65,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'EFI.context_processors.date_context',
+                'EFI.context_processors.marca_popular_context',
             ],
         },
     },

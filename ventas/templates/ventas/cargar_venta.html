@@ -3,6 +3,8 @@
 {% block body %}
 <h1>Cargar Venta</h1>
 
+<p>Fecha: {{ fecha }}</p>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
