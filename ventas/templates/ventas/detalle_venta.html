@@ -1,16 +1,48 @@
 {% extends 'autos/base.html' %}
 
 {% block body %}
-<hr>
-<a href="{% url 'ventas' %}">Volver a ventas</a>
-<hr>
 
-<h1>{{ venta }}</h1>
-<hr>
-<p>{{ venta.auto }}</p>
-<img src="/media/{{ venta.auto.foto }}" alt="Imagen del auto" style="width: 100px;">
-<p>{{ venta.vendedor }}</p>
-<p>{{ venta.cliente }}</p>
-<p>${{ venta.precio }} en {{ venta.metodoPago }}</p>
-<p>{{ venta.fecha }} </p>
+<a href="{% url 'ventas' %}" class="btn btn-outline-secondary btn-sm mb-3">&larr; Volver a ventas</a>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="h4 card-title mb-4">{{ venta }}</h1>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {% if venta.auto.foto %}
+                <img src="{{ venta.auto.foto.url }}" alt="{{ venta.auto }}" class="img-fluid detail-img">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <table class="table table-borderless">
+                    <tr>
+                        <th style="width:120px;">Auto</th>
+                        <td>{{ venta.auto }}</td>
+                    </tr>
+                    <tr>
+                        <th>Vendedor</th>
+                        <td>{{ venta.vendedor }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cliente</th>
+                        <td>{{ venta.cliente }}</td>
+                    </tr>
+                    <tr>
+                        <th>Precio</th>
+                        <td class="fw-bold fs-5">${{ venta.precio }}</td>
+                    </tr>
+                    <tr>
+                        <th>Método de pago</th>
+                        <td>{{ venta.metodoPago }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <td>{{ venta.fecha }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

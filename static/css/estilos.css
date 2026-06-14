@@ -1,0 +1,75 @@
+:root {
+    --primary: #1a2940;
+    --primary-light: #2c3e5c;
+    --accent: #c9952e;
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background-color: #b8842a;
+    border-color: #b8842a;
+    color: #fff;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: var(--primary);
+    color: rgba(255,255,255,0.7);
+    margin-top: auto;
+}
+
+.auth-card {
+    max-width: 440px;
+}
+
+.detail-img {
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.confirm-card {
+    max-width: 500px;
+}
+
+.badge-marca {
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 0.9rem;
+}
