@@ -52,7 +52,7 @@ def anularVenta(request, id):
         venta.activo = False
         venta.save()
 
-        auto = get_object_or_404(Auto, id=id)
+        auto = get_object_or_404(Auto, id=venta.auto.id)
         auto.activo = True
         auto.save()
 
