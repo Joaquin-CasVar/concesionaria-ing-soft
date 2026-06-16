@@ -3,6 +3,13 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Persona
 
 class PersonaForm(UserCreationForm):
+    direccion = forms.CharField(
+        max_length=255,
+        required=True,
+        label='Dirección',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su dirección'})
+    )
+
     class Meta:
         model = Persona
         fields = ['username', 'first_name', 'last_name', 'email', 'telefono']
