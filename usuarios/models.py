@@ -9,6 +9,9 @@ class Persona(AbstractUser):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    class Meta:
+        verbose_name = 'persona'
+        verbose_name_plural = 'personas'
 
 class Cliente(models.Model):
     persona = models.OneToOneField(
@@ -18,7 +21,7 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return f"Cliente: {self.persona}"
+        return f"{self.persona}"
 
 
 class Vendedor(models.Model):
@@ -29,4 +32,8 @@ class Vendedor(models.Model):
     salario = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
-        return f"Vendedor: {self.persona}"
+        return f"{self.persona}"
+
+    class Meta:
+        verbose_name = 'vendedor'
+        verbose_name_plural = 'vendedores'

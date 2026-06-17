@@ -12,11 +12,19 @@ class TipoCombustible(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        verbose_name = 'tipo de combustible'
+        verbose_name_plural = 'tipos de combustible'
+
 class TipoTransmision(models.Model):
     nombre = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre
+
+    class Meta:
+        verbose_name = 'tipo de transmision'
+        verbose_name_plural = 'tipos de transmision'
 
 class TipoDireccion(models.Model):
     nombre = models.CharField(max_length=100)
@@ -24,11 +32,18 @@ class TipoDireccion(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        verbose_name = 'tipo de direccion'
+        verbose_name_plural = 'tipos de direccion'
+
 class Color (models.Model):
     nombre = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre
+
+    class Meta:
+        verbose_name_plural = 'colores'
 
 class Auto(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)

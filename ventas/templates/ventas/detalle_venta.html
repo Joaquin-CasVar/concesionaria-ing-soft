@@ -42,6 +42,14 @@
                 </table>
             </div>
         </div>
+        <div class="card-footer bg-transparent d-flex gap-2 flex-wrap">
+            {% if perms.ventas.change_venta %}
+            <a href="{% url 'editar_venta' venta.id %}" class="btn btn-outline-primary btn-sm">Editar</a>
+            {% endif %}
+            {% if perms.ventas.delete_venta %}
+            <a href="{% url 'anular_venta' venta.id %}" class="btn btn-outline-danger btn-sm">Anular</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 

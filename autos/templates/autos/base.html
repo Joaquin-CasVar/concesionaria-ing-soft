@@ -21,9 +21,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'autos' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
                     </li>
                     {% if perms.ventas.view_venta %}

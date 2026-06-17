@@ -1,0 +1,16 @@
+CREDENCIALES
+
+- cliente
+client
+1234admin
+
+- vendedor
+sales
+1234admin
+
+sales2
+1234admin
+
+- gerente
+supervisor
+1234admin

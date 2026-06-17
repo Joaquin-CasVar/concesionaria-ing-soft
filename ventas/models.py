@@ -8,7 +8,7 @@ class MetodoPago(models.Model):
     activo = models.BooleanField(default=True,)
     
     def __str__(self):
-        return f'Metodo de pago: {self.nombre}'
+        return f'{self.nombre}'
 
     class Meta:
         verbose_name = 'metodo de pago'
