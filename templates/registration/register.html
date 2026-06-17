@@ -21,6 +21,14 @@
                         {% endif %}
                     </div>
                     {% endfor %}
+                    {% if formExt %}
+                    {% for field in formExt %}
+                    <div class="mb-3">
+                        <label class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                     <button type="submit" class="btn btn-primary w-100 mb-3">Registrarse</button>
                 </form>
                 <p class="text-center mb-0 small">

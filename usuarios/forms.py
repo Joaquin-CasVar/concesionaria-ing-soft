@@ -1,15 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Persona
+from .models import Cliente, Persona, Vendedor
 
 class PersonaForm(UserCreationForm):
-    direccion = forms.CharField(
-        max_length=255,
-        required=True,
-        label='Dirección',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su dirección'})
-    )
-
     class Meta:
         model = Persona
         fields = ['username', 'first_name', 'last_name', 'email', 'telefono']
@@ -25,3 +18,22 @@ class PersonaForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
+
+class ClienteForm(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['direccion', ]
+        widgets = {
+            'direccion': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Ingrese su dirección'
+            }),
+        }
+
+class VendedorForm(forms.ModelForm):
+    class Meta:
+        model = Vendedor
+        fields = ['salario', ]
+        widgets = {
+            'salario': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
