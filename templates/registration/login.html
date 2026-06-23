@@ -1,0 +1,31 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm auth-card mx-auto">
+            <div class="card-body p-4">
+                <h1 class="h4 card-title text-center mb-4">Iniciar sesión</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                        <div class="text-danger small">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar sesión</button>
+                </form>
+                <p class="text-center mb-0 small">
+                    ¿No tenés cuenta? <a href="{% url 'register' %}">Registrarse</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<a href="{% url 'ventas' %}" class="btn btn-outline-secondary btn-sm mb-3">&larr; Volver a ventas</a>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="h4 card-title mb-4">{{ venta }}</h1>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {% if venta.auto.foto %}
+                <img src="{{ venta.auto.foto.url }}" alt="{{ venta.auto }}" class="img-fluid detail-img">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <table class="table table-borderless">
+                    <tr>
+                        <th style="width:120px;">Auto</th>
+                        <td>{{ venta.auto }}</td>
+                    </tr>
+                    <tr>
+                        <th>Vendedor</th>
+                        <td>{{ venta.vendedor }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cliente</th>
+                        <td>{{ venta.cliente }}</td>
+                    </tr>
+                    <tr>
+                        <th>Precio</th>
+                        <td class="fw-bold fs-5">${{ venta.precio }}</td>
+                    </tr>
+                    <tr>
+                        <th>Método de pago</th>
+                        <td>{{ venta.metodoPago }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <td>{{ venta.fecha }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex gap-2 flex-wrap">
+            {% if perms.ventas.change_venta %}
+            <a href="{% url 'editar_venta' venta.id %}" class="btn btn-outline-primary btn-sm">Editar</a>
+            {% endif %}
+            {% if perms.ventas.delete_venta %}
+            <a href="{% url 'anular_venta' venta.id %}" class="btn btn-outline-danger btn-sm">Anular</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

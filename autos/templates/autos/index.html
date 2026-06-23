@@ -1,0 +1,46 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Listado de Autos</h1>
+    {% if perms.autos.add_auto %}
+    <a href="{% url 'crear_auto' %}" class="btn btn-primary">+ Nuevo auto</a>
+    {% endif %}
+</div>
+
+<div class="row g-4">
+    {% for auto in autos %}
+    <div class="col-sm-6 col-lg-4">
+        <div class="card h-100">
+            {% if auto.foto %}
+            <img src="{{ auto.foto.url }}" class="card-img-top" alt="{{ auto.nombre }}">
+            {% else %}
+            <div class="card-img-top bg-light d-flex align-items-center justify-content-center text-muted">
+                <span>Sin foto</span>
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ auto.marca }} - {{ auto.nombre }}</h5>
+                <p class="card-text mb-1"><strong>Año:</strong> {{ auto.anio }}</p>
+                <p class="card-text mb-1"><strong>Color:</strong> {{ auto.color }}</p>
+                <p class="card-text mb-1"><strong>Km:</strong> {{ auto.kilometros }}</p>
+            </div>
+            <div class="card-footer bg-transparent d-flex gap-2">
+                {% if perms.autos.change_auto %}
+                <a href="{% url 'editar_auto' auto.id %}" class="btn btn-outline-primary btn-sm">Editar</a>
+                {% endif %}
+                {% if perms.autos.delete_auto %}
+                <a href="{% url 'eliminar_auto' auto.id %}" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info text-center">No hay autos registrados.</div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

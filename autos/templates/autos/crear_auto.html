@@ -1,0 +1,31 @@
+{% extends 'autos/base.html' %}
+
+{% block body %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h4 card-title mb-4">Nuevo Auto</h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                        <div class="text-danger small">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="{% url 'autos' %}" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
