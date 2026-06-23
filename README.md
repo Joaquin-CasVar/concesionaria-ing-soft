@@ -2,6 +2,18 @@
 
 ## Tematica - Concesionaria
 
+### Funcionalidades
+- Crear, Ver, Editar y Eliminar Autos
+- Crear, Ver, Editar y Eliminar Ventas
+- Registrarte como cliente
+- Como supervisor registrar vendedores
+- Iniciar y Cerrar sesion con el usuario registrado
+
+## Integrantes
+
+- Alcaraz, Valentino
+- Castellano, Joaquín
+
 ### Projecto Funcionando
 ***
 ### Autos

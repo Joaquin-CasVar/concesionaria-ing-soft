@@ -20,6 +20,8 @@ def marca_popular_context(request):
     for venta in ventas:
         lista_marcas.append(venta.auto.marca.nombre)
 
-    marca_popular = Counter(lista_marcas).most_common()[0][0]
+    if len(lista_marcas) == 0:
+        return {'marca_popular': 'Ninguna'}
 
+    marca_popular = Counter(lista_marcas).most_common()[0][0]
     return {'marca_popular': marca_popular}
